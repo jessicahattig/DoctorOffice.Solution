@@ -2,10 +2,11 @@ using System.Collections.Generic;
 
 namespace DoctorOffice.Models
 {
-  public class DoctorOffice
+  public class Doctor
   {
-    public int DoctorID { get; set; }
     public string DoctorName { get; set; }
+    public int DoctorId { get; set; }
+    public int PatientId { get; set; }
     public List<DoctorSpecialty> JoinEntities { get; set; }
   }
 }
@@ -14,3 +15,4 @@ namespace DoctorOffice.Models
 //SpecalityID
 //PatientID
 //Doctor Name
+
