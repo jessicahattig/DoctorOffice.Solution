@@ -1,8 +1,11 @@
-using System.Collections.Generic;
 namespace DoctorOffice.Models
-
 {
   public class DoctorSpecialty
   {
+    public int DoctorSpecialtyId { get; set; }
+    public int DoctorId { get; set; }
+    public Doctor Doctor { get; set; }
+    public int SpecalityId { get; set; }
+    public Speciality Speciality { get; set; }
   }
 }
