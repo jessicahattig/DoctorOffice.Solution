@@ -1,0 +1,47 @@
+@{
+Layout = "_Layout";
+}
+
+@using DoctorOffice.Models;
+
+<h1>Welcome to the Doctor's Office!</h1>
+
+<hr />
+
+<h4>Doctors</h4>
+@if (Model["doctors"].Length == 0)
+{
+  <p>No doctors have been added yet.</p>
+}
+<ul>
+  @foreach (Doctor doctor in Model["doctors"])
+  {
+    <li>@Html.ActionLink(@doctor.DoctorName, "Details", new { id = @doctor.DoctorId})</li>
+  }
+</ul>
+
+<h4>Specialties</h4>
+@if (Model["specialties"].Length ==  0)
+{
+  <p>No specialties have been added yet.</p>
+}
+<ul>
+  @foreach (Specialty specialty in Model["specialties"])
+  {
+    <li>@Html.ActionLink(@specialty.Description, "Details", new { id = @specialty.SpecialtyId})</li>
+  }
+</ul>
+
+<h4>Patients</h4>
+@if (Model["patients"].Length == 0)
+{
+  <p>No patients have been added yet.</p>
+}
+<ul>
+  @foreach (Patient patient in Model["patients"])
+  {
+    <li>@Html.ActionLink(@patient.PatientName, "Details", new { id = @patient.PatientID})</li>
+  }
+</ul>
+
+
