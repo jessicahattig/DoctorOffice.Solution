@@ -45,7 +45,7 @@ namespace DoctorOffice.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
-      
+    }
       public ActionResult Details(int id)
     {
       Doctor thisDoctor = _db.Doctors
@@ -101,7 +101,7 @@ namespace DoctorOffice.Controllers
       #nullable disable
       if (joinEntity == null && specialtyId != 0)
       {
-        _db.DoctorSpecialties.Add(new DoctorSpecialty() { SpecialtyIdId = gId, DoctorId = doctor.DoctorId });
+        _db.DoctorSpecialties.Add(new DoctorSpecialty() { SpecialtyId = specialtyId, DoctorId = doctor.DoctorId });
         _db.SaveChanges();
       }
       return RedirectToAction("Details", new { id = doctor.DoctorId });
@@ -115,6 +115,5 @@ namespace DoctorOffice.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     } 
-    }
   }
 }
