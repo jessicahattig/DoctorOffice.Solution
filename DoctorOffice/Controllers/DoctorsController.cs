@@ -101,17 +101,17 @@ namespace DoctorOffice.Controllers
       #nullable disable
       if (joinEntity == null && specialtyId != 0)
       {
-        _db.DoctorSpecialties.Add(new DoctorSpecialty() { SpecialtyIdId = gId, ItemId = item.ItemId });
+        _db.DoctorSpecialties.Add(new DoctorSpecialty() { SpecialtyIdId = gId, DoctorId = doctor.DoctorId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details", new { id = item.ItemId });
+      return RedirectToAction("Details", new { id = doctor.DoctorId });
     }   
 
     [HttpPost]
     public ActionResult DeleteJoin(int joinId)
     {
-      ItemTag joinEntry = _db.ItemTags.FirstOrDefault(entry => entry.ItemTagId == joinId);
-      _db.ItemTags.Remove(joinEntry);
+      DoctorSpecialty joinEntry = _db.DoctorSpecialties.FirstOrDefault(entry => entry.DoctorSpecialtyId == joinId);
+      _db.DoctorSpecialties.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     } 
